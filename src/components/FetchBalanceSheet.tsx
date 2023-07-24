@@ -28,4 +28,4 @@ const FetchBalanceSheet = () => {
     </List> 
 }
 
-export default 
+export default FetchBalanceSheet

@@ -3,9 +3,9 @@ import { BalanceSheet } from "../typings";
 
 export interface ILoanApplicationService {
 
-    async getBalanceSheet : (name : string, year : string) => Promise<Array<BalanceSheet>>
-    async initiateApplication(name : string, year_established : string, provider : string) : Promise<void>
-    async submit(
+    getBalanceSheet : (name : string, year : string) => Promise<Array<BalanceSheet>>
+    initiateApplication(name : string, year_established : string, provider : string) : Promise<void>
+    submit(
         name : string,
         applicationId : number,
         averageAssetValue : number,
@@ -16,7 +16,7 @@ export interface ILoanApplicationService {
 }
 const loanApplicationService  = () : ILoanApplicationService => {
     const instance : AxiosInstance = axios.create({
-        baseURL: process.env.REACT_BACKEND_APPLICATION || ''
+        baseURL: process.env.REACT_BACKEND_APPLICATION || 'http://localhost:8080/'
     })
     return {
         async getBalanceSheet(name : string, year : string) : Promise<Array<BalanceSheet>> {
